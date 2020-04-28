@@ -13,9 +13,9 @@ class HeaderSeeder extends Seeder
     {
         //
         DB::table('headers')->insert([
-            'logo' => "img/big-logo.png",
-            'img' => 'img/01.jpg',
-            'img2' => 'img/02.jpg',
+            'logo' => "big-logo.png",
+            'img' => '01.jpg',
+            'img2' => '02.jpg',
             'paragraphe' => "Get your freebie template now!",
         ]);
     }

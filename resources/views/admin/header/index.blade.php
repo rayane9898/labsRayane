@@ -32,39 +32,32 @@
         </tbody>
 
         {{-- tableau --}}
-    <table class="table table-striped">
-        <thead>
-        <tr class="">
-            <th scope="col">#</th>
-            <th scope="col">Logo</th>
-            <th scope="col">Img</th>
-            <th scope="col">Img2</th>
-            <th scope="col">Paragraphe</th>
-            <th scope="col">Action</th>
-
-        </tr>
-        </thead>
+   
     <form action="{{route("updateHeader", $headers->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
-            <tbody>
-       
-                <tr>
+           
     
-                    <th scope="row">1</th>
-                    <td><input placeholder="{{$headers->logo}}" type="text" name="logo"></td>
-                    <td><input type="text" placeholder="{{$headers->img}}" name="img"></td>
-                    <td><input placeholder="{{$headers->img2}}" type="text" name="img2"></td>
-                    <td> <input placeholder="{{$headers->paragraphe}}" type="text" name="paragraphe"></td>
-                    <td><button class="btn btn-primary" type="submit">submit</button></td>
+               
+                        <label for="exampleFormControlFile1">logo</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="logo">
+                 
+                          <label for="exampleFormControlFile1">img</label>
+                          <input type="file" class="form-control-file" id="exampleFormControlFile1" name="img">
+               
+                
+                        <label for="exampleFormControlFile1">img2</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="img2">
+              
+
+                        <input placeholder="{{$headers->paragraphe}}" type="text" name="paragraphe">
+                        <button class="btn btn-primary" type="submit">submit</button>
     
-                </tr>
+
     
-            </tbody>
         </form>
-    </table>
 {{-- tableau --}}
 
-    </table>
+
     @endforeach
 
     </div>

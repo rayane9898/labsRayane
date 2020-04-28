@@ -3,9 +3,11 @@
 @section('content')
 
 		<!-- Header section -->
+		@foreach ($header as $headers)
+
 		<header class="header-section">
 			<div class="logo">
-				<img src="img/logo.png" alt=""><!-- Logo -->
+			<img src="{{$headers->logo}}" alt="" height="40px"><!-- Logo -->
 			</div>
 			<!-- Navigation -->
 			<div class="responsive"><i class="fa fa-bars"></i></div>
@@ -22,14 +24,13 @@
 		<!-- Header section end -->
 
 	<!-- Intro Section -->
-	@foreach ($header as $headers)
 	<div class="text-center">
 		<button type="button" class="btn btn-primary">Primary</button>	</div>
 
 	<div class="hero-section">
 		<div class="hero-content">
 			<div class="hero-center">
-			<img src="{{$headers->logo}}" alt="">
+			<img src="{{asset("storage/".$headers->logo)}}" alt="">
 				<p>{{$headers->paragraphe}}</p>
 				{{-- Provisoir --}}
 			<a class="btn btn-warning" href="{{route("indexHeader")}}">Edit</a>
@@ -40,8 +41,8 @@
 
 		<!-- slider -->
 		<div id="hero-slider" class="owl-carousel">
-			<div class="item  hero-item" data-bg="{{$headers->img}}"></div>
-		<div class="item  hero-item" data-bg="{{$headers->img2}}"></div>
+			<div class="item  hero-item" data-bg="{{asset("storage/".$headers->img)}}"></div>
+		<div class="item  hero-item" data-bg="{{asset("storage/".$headers->img2)}}"></div>
 		</div>
 	</div>
 	@endforeach

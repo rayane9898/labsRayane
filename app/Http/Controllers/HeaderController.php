@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Header;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class HeaderController extends Controller
 {
@@ -70,13 +72,18 @@ class HeaderController extends Controller
      * @param  \App\Header  $header
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Header $header, $id)
+    public function update(Request $request, $id)
     {
+        $img = Storage::disk("public")->put("", $request->file('img'));
+        $logo = Storage::disk("public")->put("", $request->file('logo'));
+        $img2 = Storage::disk("public")->put("", $request->file('img2'));
+
+
         //
         $header = Header::find($id);
-        $header->logo=$request->input("logo");
-        $header->img=$request->input("img");
-        $header->img2=$request->input("img2");
+        $header->logo=$logo;
+        $header->img=$img;
+        $header->img2=$img2;
         $header->paragraphe=$request->input("paragraphe");
         $header->save();
         return redirect()->back();
